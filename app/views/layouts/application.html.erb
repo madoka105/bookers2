@@ -5,12 +5,87 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/91172857dc.js" crossorigin="anonymous"></script>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+  
   <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+          <a class="navbar-brand" href="/">
+            <span>Bookers</span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+              <li>
+                <%= link_to "Home", new_user_registration_path, class: 'nav-link text-light' %>
+                <i class="fas fa-home" aria-hidden="true">
+                  
+                </i>
+                
+              </li>
+              <li>
+                <%= link_to "Users", , class: 'nav-link text-light' %>
+                <i class="fas fa-users" aria-hidden="true">
+                  <i class="fa-solid fa-users"></i>
+                </i>
+              </li>
+              <li>
+                <%= link_to "Books", , class: 'nav-link text-light' %>
+                <i class="fas fa-book-open" aria-hidden="true">
+                  <i class="fa-solid fa-book-open"></i>
+                </i>
+              </li>
+              <li>
+                <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'nav-link text-light' %>
+                <i class="fas fa-sign-out-alt" aria-hidden="true">
+                  
+                </i>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <p id="notice"></p>
+      <div class="container">
+        <div class="row">
+          <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
+            <h1>
+              "welcome to"
+              <i class="fas fa-book" aria-hidden="true">
+                
+              </i>
+              <strong>Bookers</strong>
+              "!!"
+              </h1>
+              <p>
+                "In"
+                <i class="fas fa-book" aria-hidden="true">
+                  
+                </i>
+                <strong>Bookers</strong>
+                ","
+              </p>
+              <P>you can share and exchange your opinions , inpressions , and emotions</P>
+              <p>about various books!</p>
+              <div class="btn-wrapper col-10 mx-auto">
+                <div class="row">
+                  <% link_to "Log in", new_user_session_path, class: 'btn btn-info btn-sm btn-block mb-3 sign_in' %>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </main>
     <%= yield %>
   </body>
 </html>
