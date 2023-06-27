@@ -9,21 +9,23 @@
     <tbody>
       <tr>
         <td>
-        <%= image_tag @user.get_profile_image(100,100) %><br>
-          <%=link_to @user.name,user_path(@user.id) %>
+        <%= link_to user_path(@book_find.user.id) do %>
+                      <p><%= image_tag @book_find.user.get_profile_image(100,100) %></p>
+                      <span><%= @book_find.user.name %></span>
+                   <% end %><br>
         </td>
         <td>
-          <%= link_to @book.title,book_path(@book.id) %>
+          <%= link_to @book_find.title,book_path(@book_find.id) %>
         </td>
         <td>
-          <%= @book.body %>
+          <%= @book_find.body %>
         </td>
-        <% if @book.user == current_user %>
+        <% if @book_find.user == current_user %>
           <td>
-            <%= link_to "Edit", edit_book_path(@book.id), class: 'btn btn-success' %>
+            <%= link_to "Edit", edit_book_path(@book_find.id), class: 'btn btn-success' %>
           </td>
           <td>
-            <%= link_to "Destroy", book_path(@book.id),method: :delete, class: 'btn btn-danger',"data-confirm" => "本当に削除しますか？" %>
+            <%= link_to "Destroy", book_path(@book_find.id),method: :delete, class: 'btn btn-danger',"data-confirm" => "本当に削除しますか？" %>
           </td>
         <% end %>
       </tr>
